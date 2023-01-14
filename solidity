@@ -1,0 +1,20 @@
+pragma solidity ^0.8.0;
+contract Splitwise{
+
+//mapping to capture balances 
+    mapping(address => uint) public money;
+    address[] public Users;
+    
+    //function to insert address and amount
+    //function  lookup to return the amount debtors owes the creditor
+    function lookup(address debtor, address creditor) public view returns (uint32 ret);
+
+//function add_IOU informs the contract msg.sender now owes amount more dollars to the creditor
+function add_IOU(address creditor, uint32 amount) public{increase(msg.sender, creditor, amount);
+}
+
+//function increase only adds positive amount
+function increase(address debtor, address creditor, uint32 amount) public{
+    money[debtor][creditor] += amount;
+}
+}
